@@ -1,16 +1,31 @@
-# Compiled class file
+# Ignore compiled class files
 *.class
 
-# Log file
+# Ignore IDE-specific files (Eclipse, IntelliJ, NetBeans, BlueJ)
+*.ctxt
+*.iml
+*.ipr
+*.iws
+.idea/
+.project
+.classpath
+.settings/
+
+# Ignore log files
 *.log
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
+# Ignore Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
+# Ignore build artifacts
+target/
+bin/
+
+# Ignore Maven dependency directory
+.mvn/
+.m2/
+
+# Ignore packaged files (JAR, WAR, etc.)
 *.jar
 *.war
 *.nar
@@ -19,6 +34,16 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# Ignore database files
+*.db
+*.sqlite
+
+# Ignore temporary or system files
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Ignore Java Virtual Machine crash logs
 hs_err_pid*
 replay_pid*
