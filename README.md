@@ -1,7 +1,33 @@
 # RailwayReservationSystem
-A CLI based Railway Reservation System
+# Railway Reservation System
 
+A command-line based Railway Reservation System implemented in Java using MySQL as the backend database. 
+This project demonstrates core DBMS concepts such as user management, train listings, ticket booking, 
+and foreign key constraints, all through a simple terminal interface.
 
+## Features
+
+- User registration and login
+- View available trains
+- Book tickets
+- Secure and normalized database design
+- Admin user can be accessed with Username: admin and Password: admin123, which can be used to cancel tickets 
+and also to add and cancel the trains.
+
+## Technologies Used
+
+- Java (CLI)
+- MySQL (Database)
+- JDBC (Java Database Connectivity)
+- Maven
+
+## Database Setup
+
+To get started, use the following SQL script to create and initialize the required database and tables. 
+This script creates a `railway` database with `users`, `trains`, and `tickets` tables, inserts some sample records, 
+and establishes foreign key relationships:
+
+```sql
 -- Create and use the railway database
 CREATE DATABASE railway;
 USE railway;
@@ -29,13 +55,3 @@ CREATE TABLE tickets (
     FOREIGN KEY (train_id) REFERENCES trains(id) ON DELETE CASCADE
 );
 
--- Insert sample trains
-INSERT INTO trains (source, destination) VALUES
-('New York', 'Washington'),
-('Los Angeles', 'San Francisco'),
-('Chicago', 'Houston');
-
--- Insert sample users
-INSERT INTO users (name, password) VALUES
-('user1', 'password1'),
-('user2', 'password2');

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketDAO {
-    // ✅ Book a ticket (Already defined)
+    //  Book a ticket (Already defined)
     public boolean bookTicket(int userId, int trainId) {
         String sql = "INSERT INTO tickets (user_id, train_id) VALUES (?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -21,7 +21,7 @@ public class TicketDAO {
         }
     }
 
-    // ✅ Get all tickets (Used by Admin)
+    //  Get all tickets (Used by Admin)
     public List<Ticket> getAllTickets() {
         List<Ticket> tickets = new ArrayList<>();
         String sql = "SELECT * FROM tickets";
@@ -37,7 +37,7 @@ public class TicketDAO {
         return tickets;
     }
 
-    // ✅ Cancel a ticket by ID (Newly Added)
+    //  Cancel a ticket by ID (Newly Added)
     public boolean cancelTicket(int ticketId) {
         String sql = "DELETE FROM tickets WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
