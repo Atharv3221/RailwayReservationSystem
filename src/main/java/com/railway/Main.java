@@ -7,57 +7,76 @@ import com.railway.services.AdminService;
 import com.railway.services.AuthenticationService;
 import com.railway.services.ReservationService;
 import java.util.List;
+```java
 import java.util.Scanner;
 
+/**
+ * Main class for the application.
+ */
 public class Main {
+    /**
+     * Main entry point for the application.
+     * 
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         AuthenticationService authService = new AuthenticationService();
         ReservationService reservationService = new ReservationService();
+```
         AdminService adminService = new AdminService();
         TrainDAO trainDAO = new TrainDAO();
 
         while (true) {  // ✅ Keeps user on main menu until they exit
-            System.out.println("\nWelcome to Railway Reservation System");
-            System.out.println("1. Login");
-            System.out.println("2. Register");
-            System.out.println("3. Exit");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
+```java
+    System.out.println("\nWelcome to Railway Reservation System");
+    System.out.println("1. Login");
+    System.out.println("2. Register");
+    System.out.println("3. Exit");
+    int choice = scanner.nextInt();
+    scanner.nextLine(); // Consume newline
+```
             User user;
             if (choice == 1) {
                 System.out.print("Enter Name: ");
                 String name = scanner.nextLine();
-                System.out.print("Enter Password: ");
-                String password = scanner.nextLine();
-                user = authService.login(name, password);
+```java
+System.out.print("Enter Password: ");
+String password = scanner.nextLine();
+user = authService.login(name, password);
 
-                if (user == null) {
-                    System.out.println("Invalid credentials! Try again.");
-                    continue;  // ✅ Stay on the main menu
+if (user == null) {
+    System.out.println("Invalid credentials! Try again.");
+    continue;  
+```
                 }
             } else if (choice == 2) {
                 System.out.print("Enter Name: ");
                 String name = scanner.nextLine();
-                System.out.print("Enter Password: ");
-                String password = scanner.nextLine();
-                if (authService.register(name, password)) {
-                    System.out.println("Registration successful. Logging you in...");
-                    user = authService.login(name, password); // Auto-login after registration
-                } else {
-                    System.out.println("Registration failed. Try again.");
+```java
+    System.out.print("Enter Password: ");
+    String password = scanner.nextLine();
+    if (authService.register(name, password)) {
+        System.out.println("Registration successful. Logging you in...");
+        user = authService.login(name, password); // Auto-login after registration
+    } 
+    else {
+        System.out.println("Registration failed. Try again.");
+```
                     continue;
                 }
             } else if (choice == 3) {
                 System.out.println("Exiting the system. Goodbye!");
-                break;  // ✅ Exit the system only when the user chooses "Exit"
-            } else {
-                System.out.println("Invalid choice! Try again.");
-                continue;
-            }
+```java
+            break;  // ✅ Exit the system only when the user chooses "Exit"
+        } 
+    } else {
+        System.out.println("Invalid choice! Try again.");
+        continue;
+    }
 
-            if (user.isAdmin()) {
+    if (user.isAdmin()) {
+```
                 // 🟢 ADMIN PANEL
                 System.out.println("\nWelcome Admin!");
 
