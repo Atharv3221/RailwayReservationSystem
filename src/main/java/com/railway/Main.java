@@ -24,7 +24,6 @@ public class Main {
             System.out.println("3. Exit");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
-
             User user;
             if (choice == 1) {
                 System.out.print("Enter Name: ");
