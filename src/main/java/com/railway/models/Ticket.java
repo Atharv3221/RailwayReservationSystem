@@ -1,9 +1,9 @@
 package com.railway.models;
 
 public class Ticket {
-    private int id;
-    private int userId;
-    private int trainId;
+    private final int id;
+    private final int userId;
+    private final int trainId;
 
     public Ticket(int id, int userId, int trainId) {
         this.id = id;
